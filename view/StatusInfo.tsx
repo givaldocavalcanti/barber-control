@@ -11,9 +11,15 @@ export function StatusInfo({
     status: StatusInfoType;
 }){
     if(!status.message) return null;
+
+    const tailwind = [
+        'font-sans',
+        status.type === 'loading' ? "animate-pulse" : "",
+        className
+    ].join(" ").trim();
     
     return (
-        <span className={`font-sans ${className}`}>
+        <span className={tailwind}>
             { status.message}
         </span>
     );
