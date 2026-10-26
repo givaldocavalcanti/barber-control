@@ -1,9 +1,9 @@
 'use client'
 
 import { useRegisterClient } from "@/controllers";
-import { FormButton, FormInput, FormLabel, FormPassword, FormRow } from "../form";
-import { PublicPagesLayout } from "../PublicPagesLayout";
-import { StatusInfo } from "../StatusInfo";
+import { FormButton, FormInput, FormInputDate, FormLabel, FormPassword, FormRow } from "../../form";
+import { StatusInfo } from "../../StatusInfo";
+import { PublicPagesLayout } from "./PublicPagesLayout";
 
 
 export function Register() {
@@ -65,6 +65,24 @@ export function Register() {
                         name="telefone"
                         className={inputClassName}
                         placeholder="(00) 00000-0000"
+                        required
+                        aria-required="true"
+                    />
+                </FormRow>
+
+                <FormRow className="flex-col">
+                    <FormLabel
+                        htmlFor="dataNascimento"
+                        className={labelClassName}
+                    >
+                        Data de Nascimento:
+                    </FormLabel>
+                    <FormInputDate
+                        id="dataNascimento"
+                        type="date"
+                        name="dataNascimento"
+                        className={`${inputClassName} text-cream scheme-dark [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-50 hover:[&::-webkit-calendar-picker-indicator]:opacity-100 transition-opacity`}
+                        placeholder="00/00/0000"
                         required
                         aria-required="true"
                     />

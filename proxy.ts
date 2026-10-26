@@ -4,7 +4,7 @@ export default function proxy(request: NextRequest){
     const session = request.cookies.get("barber-session")?.value;
     const url = request.nextUrl.clone();
 
-    const publicRoutes = ['/login', '/cadastro', '/recuperar-senha'];
+    const publicRoutes = ['/login', '/cadastro-cliente', '/recuperar-senha'];
     const isPublicRoute = publicRoutes.includes(url.pathname);
 
     //Não tá logado

@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
-import { StatusInfoType } from "@/view";
+import { StatusInfoType } from "../types";
 import { REQUEST_HEADERS } from "../utils";
 
 export function useRegisterClient() {
@@ -19,6 +19,7 @@ export function useRegisterClient() {
             const nome = data.get("nome") as string;
             const email = data.get('email') as string;
             const telefone = data.get("telefone") as string;
+            const dataNascimento = data.get("dataNascimento") as string;
             const password = data.get('password') as string;
             const confirmPassword = data.get("confirmPassword") as string;
 
@@ -30,7 +31,14 @@ export function useRegisterClient() {
             const response = await fetch("/api/cadastro", {
                 method: 'POST',
                 headers: REQUEST_HEADERS,
-                body: JSON.stringify({ email, password, nome, telefone, type: 'client' })
+                body: JSON.stringify({ 
+                    type: 'client',
+                    email, 
+                    password, 
+                    nome, 
+                    telefone, 
+                    dataNascimento
+                })
             });
 
             const result = await response.json();
@@ -42,10 +50,13 @@ export function useRegisterClient() {
 
             setStatus({
                 type: 'success', 
-                message: "Parabéns por entrar para o bando, já vamos direcionar para o login."})
-
-            setTimeout(() => router.replace("/login"), 1500);
+                message: "Parabéns por entrar para o bando, já vamos te direcionar para o login."})
             
+            setTimeout(() => {
+                evt.target.reset();
+                setStatus({type: 'idle'});
+                router.replace("/login");
+            }, 1500);
 
         } catch {
             setStatus({ 

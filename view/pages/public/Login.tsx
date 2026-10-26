@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useLogin } from "@/controllers";
-import { PublicPagesLayout } from "../PublicPagesLayout";
-import { FormButton, FormInput, FormLabel, FormPassword, FormRow } from "../form";
-import { StatusInfo } from "../StatusInfo";
+import { FormButton, FormInput, FormLabel, FormPassword, FormRow } from "../../form";
+import { StatusInfo } from "../../StatusInfo";
+import { PublicPagesLayout } from "./PublicPagesLayout";
 
 
 function LoginSocial({ children, type = "button", ...props }: React.ButtonHTMLAttributes<HTMLButtonElement>) {
@@ -129,7 +129,7 @@ export function Login() {
 
                 <FormRow className="mt-8 text-center text-sm text-gray-400 gap-2">
                     Não tem conta?
-                    <Link href="/cadastro" className="text-gold hover:underline">Cadastre-se agora</Link>
+                    <Link href="/cadastro-cliente" className="text-gold hover:underline">Cadastre-se agora</Link>
                 </FormRow>
             </form>
         </PublicPagesLayout>

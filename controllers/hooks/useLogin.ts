@@ -2,8 +2,8 @@
 
 import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
-import { StatusInfoType } from "@/view";
 import { useAuth } from "../components";
+import { StatusInfoType } from "../types";
 import { REQUEST_HEADERS } from "../utils";
 
 /**
@@ -58,6 +58,8 @@ export function useLogin() {
 
             if (result.user) {
                 setUser(result.user);
+                evt.target.reset();
+                setStatus({type: 'idle'});
                 router.replace("/");
             }
         } catch {

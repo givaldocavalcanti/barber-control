@@ -1,4 +1,4 @@
-import { BarberLogo } from "./BarberLogo";
+import { BarberLogo } from "../../BarberLogo";
 
 export function PublicPagesLayout({
     children,
@@ -10,9 +10,9 @@ export function PublicPagesLayout({
     return (
         <main
             role="main"
-            className="p-6 min-h-screen flex flex-col items-center justify-center font-sans text-cream"
+            className="p-6 h-screen flex flex-col items-center justify-center font-sans text-cream"
         >
-            <div className="w-full max-w-lg lg:p-4 rounded-lg lg:border border-gold/25">
+            <div className="w-full max-w-lg lg:p-4 h-[95%] rounded-lg lg:border border-gold/25">
                 <header className="mb-10 flex flex-col items-center">
                     <BarberLogo className="mb-4 w-18 h-18 text-gold" />
                     <h1 className="mb-1 text-3xl font-semibold">BarberControl</h1>

@@ -1,7 +1,4 @@
-export interface StatusInfoType{
-    type: "idle" | "loading" | "success" | "error"; 
-    message?: string;
-}
+import { StatusInfoType } from "@/controllers";
 
 export function StatusInfo({ 
     className="",

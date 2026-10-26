@@ -1,4 +1,4 @@
-import { User } from "@/controllers";
+import { User } from "@/models";
 
 export const usuariosDB = new Map<string, User>();
 
@@ -15,6 +15,7 @@ usuariosDB.set("user@user.com", {
     email: "user@user.com",
     telefone: "(11) 11111-1111",
     password: '123456',
+    dataNascimento: new Date('01/18/2000'),
     type: 'cliente'
 });
 

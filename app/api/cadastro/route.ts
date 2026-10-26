@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { User } from "@/controllers";
+import { User } from "@/models";
 import { usuariosDB } from "@/lib/mockDB";
 
 
 export async function POST(request: NextRequest) {
-    const { email, password, nome, telefone, type } = (await request.json()) as User;
+    const { email, password, nome, telefone, dataNascimento, type } = (await request.json()) as User;
 
     const user = usuariosDB.get(email);
     if(user && user.type === type){
@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
         );
     }
 
-    usuariosDB.set(email, {email, password, nome, type, telefone});
+    usuariosDB.set(email, {email, password, nome, type, telefone, dataNascimento});
 
     return NextResponse.json({message: 'Parabéns por entrar para o bando.'} , {status: 201});
 }
