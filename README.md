@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BarberControl 💈
 
-## Getting Started
+Sistema web para gestão de barbearias, focado em facilitar o agendamento de serviços para clientes, organização de horários e turnos para barbeiros e controle gerencial para administradores.
 
-First, run the development server:
+Projeto desenvolvido para a disciplina de **Engenharia de Software** do curso de **Engenharia de Sistemas** da **Universidade Estadual de Montes Claros (Unimontes)**.
+
+---
+
+## 📌 Sobre o Projeto
+
+O **BarberControl** busca eliminar a necessidade de ligações ou mensagens manuais para marcação de horários. Suas principais funcionalidades incluem:
+
+- **Clientes**: consulta de horários disponíveis, escolha de barbeiros/serviços e realização de agendamentos online.
+- **Barbeiros**: acompanhamento de agenda diária e controle de disponibilidade/turnos.
+- **Administrador**: painel de controle para cadastro de serviços, equipe, horários de funcionamento e relatórios gerenciais.
+
+---
+
+## 🛠️ Tecnologias
+
+### Frontend
+- [Next.js](https://nextjs.org/) (v16)
+- [React](https://react.dev/) (v19)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Lucide React](https://lucide.dev/) (Ícones)
+
+### Backend *(Pendente / Em Desenvolvimento)*
+- [FastAPI](https://fastapi.tiangolo.com/)
+- [SQLAlchemy](https://www.sqlalchemy.org/)
+- Python 3
+
+---
+
+## 🚀 Como Executar
+
+### 1. Frontend
+
+Certifique-se de ter o [Node.js](https://nodejs.org/) instalado.
 
 ```bash
+# Acesse o diretório do frontend
+cd frontend
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse [http://localhost:3000](http://localhost:3000) no navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 2. Backend
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+> **Status:** ⚠️ **Pendente / Em desenvolvimento**
+> A API e a modelagem do banco de dados estão sendo estruturadas com FastAPI e SQLAlchemy. Instruções de execução serão adicionadas assim que os serviços forem implementados.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📂 Estrutura do Projeto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```text
+barber-control/
+├── frontend/             # Aplicação web (Next.js + TypeScript + Tailwind)
+│   ├── app/              # Páginas e rotas (App Router)
+│   ├── controllers/      # Lógica de controle e regras do front
+│   ├── models/           # Tipagens e modelos de dados
+│   └── view/             # Componentes visuais
+└── backend/              # API REST (FastAPI + SQLAlchemy) [Pendente]
+    └── app/
+        ├── controllers/  # Endpoints e rotas da API
+        ├── models/       # Modelos de dados / Tabelas ORM
+        ├── views/        # Schemas / Serialização de dados (Pydantic)
+        └── database/     # Configuração e sessão do banco de dados
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 👥 Equipe & Colaboradores
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Felipe Monteiro**
+- **Heytor Pereira**
+- **Edilson Soares**
+- **Givaldo**
+- **João Carlos**
+- **Gabriel Soares de Freitas**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Orientação:** Prof. Allysson Costa e Silva  
+**Instituição:** Universidade Estadual de Montes Claros (Unimontes)
