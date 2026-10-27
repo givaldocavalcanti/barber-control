@@ -1,4 +1,4 @@
-import { BarberLogo } from "../../BarberLogo";
+import { BarberLogo } from "@/controllers";
 
 export function PublicPagesLayout({
     children,

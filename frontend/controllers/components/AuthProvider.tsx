@@ -20,12 +20,19 @@ const AuthContext = React.createContext<AuthContextType>({
  * para todos os componentes filhos na árvore do React.
  * 
  * @param props.children - Os componentes da interface que terão acesso aos dados de autenticação.
+ * @param props.initialUser - Usuário recuperado pelo servidor via cookie (hidratação inicial). 
  * 
  * @returns Um provedor React que encapsula a aplicação com os dados do usuário.
  */
 
-export function AuthProvider({ children } : {children?: React.ReactNode}){
-    const [user, setUser] = useState<User | null>(null);
+export function AuthProvider({ 
+    children,
+    initialUser = null
+} : {
+    children?: React.ReactNode;
+    initialUser: User | null
+}){
+    const [user, setUser] = useState<User | null>(initialUser);
     
     return (
         <AuthContext.Provider value={{user, setUser}}>

@@ -9,7 +9,7 @@ export interface User{
 
 export type StatusAgendamento = 'Aguardando' | 'Confirmado' | 'Concluido' | 'Cancelado';
 
-export interface Produto {
+export interface Servico {
     id: string;
     nome: string;
     tempoEstimado: number;      // Tempo em minutos
@@ -22,6 +22,6 @@ export interface Agendamento {
     horario: string;            // "HH:mm"
     barbeiro: string;           // email do barbeiro
     cliente: string;            // e-mail do cliente
-    produtos: string[];         // ids do produtos
+    servicos: string[];         // ids dos servicos
     status: StatusAgendamento;
 }
