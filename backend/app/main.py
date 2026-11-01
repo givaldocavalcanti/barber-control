@@ -8,7 +8,7 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from app import models  # noqa: F401  (registra as tabelas)
 from app.config import get_settings
-from app.controllers import auth, servicos, usuarios
+from app.controllers import agendamentos, auth, servicos, usuarios
 from app.database import Base, SessionLocal, engine
 from app.seed import popular
 
