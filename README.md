@@ -28,17 +28,21 @@ O projeto está na etapa inicial de integração entre frontend e backend.
 - CRUD de serviços, com operações administrativas protegidas.
 - Banco SQLite com dados de desenvolvimento e usuários de teste.
 - Proxy do frontend para as rotas `/api/*` do backend.
+- Após o login, o cliente vê um dashboard inicial com as abas de agendamentos e perfil.
+- O perfil do cliente exibe apenas informações estáticas no momento.
+- A área de agendamentos informa que ainda não há consultas e não permite criar uma nova.
+- Barbeiros e administradores veem uma mensagem informando que seus painéis estão em desenvolvimento.
 
 ### Ainda não implementado
 
-- A tela inicial está vazia; ainda não há dashboards separados para cliente, barbeiro e administrador.
+- Os dashboards de barbeiro e administrador ainda são apenas telas indicativas, sem operações disponíveis.
 - O cliente ainda não consegue marcar, consultar, cancelar ou acompanhar agendamentos pela interface.
 - O barbeiro ainda não possui agenda, disponibilidade ou gerenciamento de atendimentos pela interface.
 - O administrador ainda não possui painel completo, relatórios ou configuração visual de horários.
 - Existe apenas um contrato mínimo de agendamentos no backend para criar e listar consultas, sem disponibilidade, conflitos ou turnos.
 - Não há cálculo de horários disponíveis, bloqueio de conflitos, notificações ou recuperação de senha funcional.
 
-Portanto, o sistema atualmente deve ser considerado uma **base funcional de autenticação e cadastro**, e não uma aplicação de gestão de barbearia concluída.
+Portanto, o sistema atualmente deve ser considerado uma **base funcional de autenticação e cadastro, com uma primeira estrutura visual do dashboard do cliente**, e não uma aplicação de gestão de barbearia concluída.
 
 ---
 
