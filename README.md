@@ -35,7 +35,7 @@ O projeto está na etapa inicial de integração entre frontend e backend.
 - O cliente ainda não consegue marcar, consultar, cancelar ou acompanhar agendamentos pela interface.
 - O barbeiro ainda não possui agenda, disponibilidade ou gerenciamento de atendimentos pela interface.
 - O administrador ainda não possui painel completo, relatórios ou configuração visual de horários.
-- Agendamentos e turnos existem apenas como modelos iniciais no backend, sem endpoints ou regras de negócio.
+- Existe apenas um contrato mínimo de agendamentos no backend para criar e listar consultas, sem disponibilidade, conflitos ou turnos.
 - Não há cálculo de horários disponíveis, bloqueio de conflitos, notificações ou recuperação de senha funcional.
 
 Portanto, o sistema atualmente deve ser considerado uma **base funcional de autenticação e cadastro**, e não uma aplicação de gestão de barbearia concluída.
@@ -120,7 +120,7 @@ O banco SQLite `backend/barber.db` é criado e populado automaticamente em desen
 | `GET` | `/api/barbeiros` | Autenticado | Lista barbeiros ativos |
 | `POST` | `/api/barbeiros` | Administrador | Cadastra um barbeiro |
 
-Agendamentos, turnos e relatórios ainda não possuem endpoints.
+Agendamentos possuem apenas os endpoints mínimos `GET /api/agendamentos` e `POST /api/agendamentos`. Turnos e relatórios ainda não possuem endpoints.
 
 ### Integração com o frontend
 
@@ -134,7 +134,7 @@ Os erros da API seguem o formato `{ "error": "mensagem" }`, e os campos principa
 
 ## 🧭 Próximos passos sugeridos
 
-- Criar endpoints e telas de agendamento: criar, listar, cancelar, confirmar e concluir consultas.
+- Integrar a tela de cliente aos endpoints mínimos de agendamento e depois adicionar cancelar, confirmar e concluir consultas.
 - Implementar turnos, horário de funcionamento e cálculo de horários disponíveis.
 - Bloquear conflitos de agenda considerando a duração dos serviços.
 - Criar dashboards distintos para cliente, barbeiro e administrador.

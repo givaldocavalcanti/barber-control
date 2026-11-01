@@ -42,6 +42,7 @@ async def erro_validacao(_: Request, exc: RequestValidationError):
     return JSONResponse({"error": "Dados inválidos.", "campos": campos}, status_code=422)
 
 
+app.include_router(agendamentos.router)
 app.include_router(auth.router)
 app.include_router(servicos.router)
 app.include_router(usuarios.router)
