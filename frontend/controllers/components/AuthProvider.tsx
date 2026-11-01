@@ -1,5 +1,5 @@
 'use client'
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { User } from "@/models";
 
 interface AuthContextType {
@@ -25,14 +25,28 @@ const AuthContext = React.createContext<AuthContextType>({
  * @returns Um provedor React que encapsula a aplicação com os dados do usuário.
  */
 
-export function AuthProvider({ 
+export function AuthProvider({
     children,
-    initialUser = null
+    initialUser = null,
 } : {
     children?: React.ReactNode;
-    initialUser: User | null
+    initialUser?: User | null;
 }){
     const [user, setUser] = useState<User | null>(initialUser);
+
+    useEffect(() => {
+        if (initialUser) return;
+
+        fetch("/api/me")
+            .then(async (response) => {
+                if (response.ok) {
+                    setUser((await response.json()).user);
+                }
+            })
+            .catch((error) => {
+                console.error("Não foi possível restaurar a sessão:", error);
+            });
+    }, [initialUser]);
     
     return (
         <AuthContext.Provider value={{user, setUser}}>

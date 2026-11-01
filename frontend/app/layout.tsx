@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { cookies } from 'next/headers';
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/controllers";
@@ -18,20 +17,14 @@ export const metadata: Metadata = {
 	description: "BarberControl, sua barbearia sob controle",
 };
 
-export const instant = false;
-
-export default async function RootLayout({ children }: LayoutProps<"/">) {
-	const cookieStore = await cookies();
-    const sessionCookie = cookieStore.get('barber-session')?.value;
-	const initialUser = sessionCookie ? JSON.parse(sessionCookie) : null;
-	
+export default function RootLayout({ children }: LayoutProps<"/">) {
 	return (
 		<html
 			lang="pt-BR"
 			className={`${montserrat.variable} h-full antialiased`}
 		>
 			<body className="min-h-full flex flex-col">
-				<AuthProvider initialUser={initialUser}>{children}</AuthProvider>
+				<AuthProvider>{children}</AuthProvider>
 			</body>
 		</html>
 	);
