@@ -32,7 +32,6 @@ export function useRegisterClient() {
                 method: 'POST',
                 headers: REQUEST_HEADERS,
                 body: JSON.stringify({ 
-                    type: 'client',
                     email, 
                     password, 
                     nome, 
