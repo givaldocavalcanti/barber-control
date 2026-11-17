@@ -1,6 +1,7 @@
 'use client'
 
 import { ClienteDashboard } from "@/view/pages";
+import { LogoutButton } from "@/view/pages/components";
 import { useAuth } from "./AuthProvider"
 import { BarberLogo, LoadingSpinner, PageContainer } from "./utils";
 
@@ -36,6 +37,8 @@ export function HomeController() {
                     <p>Entre em contato com a Barbearia.</p>
                 </div>
             )}
+
+            <LogoutButton />
         </PageContainer>
     );
 }
