@@ -1,10 +1,12 @@
 'use client'
 
 import Link from "next/link";
+import { useRef } from "react";
 import { useLogin } from "@/controllers";
 import { FormButton, FormInput, FormLabel, FormPassword, FormRow } from "../../form";
 import { StatusInfo } from "../../StatusInfo";
 import { PublicPagesLayout } from "./PublicPagesLayout";
+import { DemoAccounts } from "./DemoAccounts";
 
 
 function LoginSocial({ children, type = "button", ...props }: React.ButtonHTMLAttributes<HTMLButtonElement>) {
@@ -27,7 +29,17 @@ function LoginSocial({ children, type = "button", ...props }: React.ButtonHTMLAt
 
 export function Login() {
     const [status, handleSubmit] = useLogin();
+    const formRef = useRef<HTMLFormElement>(null);
     const inputClassName = "pb-2 border-b focus:outline-none focus:border-gold";
+
+    const fillDemoAccount = (email: string, password: string) => {
+        const form = formRef.current;
+        if (!form) return;
+
+        (form.elements.namedItem("email") as HTMLInputElement).value = email;
+        (form.elements.namedItem("password") as HTMLInputElement).value = password;
+        form.querySelector<HTMLButtonElement>('button[type="submit"]')?.focus();
+    };
 
     return (
         <PublicPagesLayout
@@ -35,7 +47,7 @@ export function Login() {
         >
             <h2 id="login-heading" className="sr-only">Acesse sua conta</h2>
 
-            <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+            <form ref={formRef} className="flex flex-col gap-6" onSubmit={handleSubmit}>
                 <FormRow className="flex-col">
                     <FormLabel
                         htmlFor="email"
@@ -95,6 +107,8 @@ export function Login() {
                         <StatusInfo status={status} className="w-full text-center text-sm" />
                     </FormRow>
                 )}
+
+                <DemoAccounts onSelect={fillDemoAccount} />
 
                 <FormRow className="mt-8 flex-col items-center">
                     <div className="mb-4 w-full flex flex-row gap-2 items-center">
